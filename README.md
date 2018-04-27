@@ -10,10 +10,25 @@ masonry using Bootstrap 3 grid
 ```
 
 ## Usage
+### HTML
 ```
 <div class="row masonry" data-target=".item" data-col-xs="12" data-col-sm="4" data-col-md="3">
+  <div class="item">
+    <p>Lorem ipsum dolor sit amet.</p>
+  </div>
+</div>
 ```
-
+or
+```
+<div class="row masonry" data-target=".item" data-col-xs="12" data-col-sm="4" data-col-md="3">
+  <div class="col-xs-12 col-sm-4 col-md-3">
+    <div class="item">
+      <p>Lorem ipsum dolor sit amet.</p>
+    </div>
+  </div>
+</div>
+```
+### JS
 ```
 $('.masonry').masonry();
 ```
