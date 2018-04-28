@@ -34,4 +34,12 @@ or
 $('.masonry').masonry();
 ```
 
+Push method to add elements
+```
+var $masonry = $('.masonry').masonry();
+$.get('...', function(data) {
+  $masonry.push($(data));
+});
+```
+
 [Example](http://htmlpreview.github.io/?https://github.com/gustavoconci/bootstrap.masonry.js/blob/master/index.html)
