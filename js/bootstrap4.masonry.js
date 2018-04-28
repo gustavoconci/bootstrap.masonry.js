@@ -1,5 +1,5 @@
 /**
- * bootstrap.masonry.js - Masonry Bootstrap 3 (https://github.com/gustavoconci/bootstrap.masonry.js)
+ * bootstrap.masonry.js - Masonry Bootstrap (https://github.com/gustavoconci/bootstrap.masonry.js)
  * Copyright (c) 2017-2018, Gustavo Henrique Conci. (MIT Licensed)
  */
 
@@ -11,7 +11,8 @@
     $.fn.masonry = function() {
         var $masonry = $(this),
             mediaCurrent = 0,
-            $els = $masonry.find($masonry.attr('data-target')),
+            target = $masonry.attr('data-target'),
+            $els = $masonry.find(target),
             $cols = [],
 
             add = function($els) {
@@ -19,15 +20,27 @@
                     elsI = -1,
                     colsI;
 
+                var sum = 0;
+                $('#wrap > div').each(function() {
+                    sum += $(this).width();
+                });
+
+                var $col = [];
+
                 while (++elsI < $els.length) {
                     colsI = -1;
 
                     while (++colsI < $cols.length) {
-                        if ($cols.eq(colsI).height() >= $colActive.height()) {
+                        $col = $cols.eq(colsI);
+                        $col.data('childHeight', 0).find(target).each(function() {
+                            $col.data('childHeight', $col.data('childHeight') + $(this).outerHeight(true));
+                        });
+
+                        if ($col.data('childHeight') >= $colActive.data('childHeight')) {
                             continue;
                         }
 
-                        $colActive = $cols.eq(colsI);
+                        $colActive = $col;
                     }
 
                     $colActive.append($els.eq(elsI));
@@ -45,7 +58,7 @@
                         return new Array(Math.ceil(num)+1).join(text);
                     },
                     data = $masonry.data(),
-                    widths = { 'lg': 1200, 'md': 992, 'sm': 768, 'xs': 0 },
+                    widths = { 'xl': 1200, 'lg': 992, 'md': 768, 'sm': 576, 'xs': 0 },
                     colsHtml = '',
                     mediaNew = 0;
 
@@ -57,7 +70,7 @@
 
                     if (media('(min-width: ' + mediaNew + 'px)')) {
                         var colNumber = data[index];
-                        colsHtml = repeat((12 / colNumber), '<div class="col-' + width + '-' + colNumber + '"/>');
+                        colsHtml = repeat((12 / colNumber), '<div class="col"/>');
 
                         break;
                     }
