@@ -1,7 +1,7 @@
 # bootstrap4.masonry.js
 masonry using Bootstrap 4 grid
 
-[Example](http://htmlpreview.github.io/?https://github.com/gustavoconci/bootstrap.masonry.js/blob/master/bootstrap4.html)
+[Example](http://conci.com.br/masonry/bootstrap4.html)
 
 ```
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -30,7 +30,7 @@ or
 # bootstrap3.masonry.js
 masonry using Bootstrap 3 grid
 
-[Example](http://htmlpreview.github.io/?https://github.com/gustavoconci/bootstrap.masonry.js/blob/master/bootstrap3.html)
+[Example](http://conci.com.br/masonry/bootstrap3.html)
 
 ```
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
