@@ -1,8 +1,7 @@
 /**
  * bootstrap.masonry.js - Masonry Bootstrap (https://github.com/gustavoconci/bootstrap.masonry.js)
- * Copyright (c) 2017-2018, Gustavo Henrique Conci. (MIT Licensed)
+ * Copyright (c) 2017-2020, Gustavo Henrique Conci. (MIT Licensed)
  */
-
 (function($) {
     function media(feature) {
         return typeof window.matchMedia === 'undefined' || window.matchMedia(feature).matches;
@@ -65,12 +64,12 @@
 
                 if (mediaNew != mediaCurrent) {
                     mediaCurrent = mediaNew;
-
-                    $cols = $(colsHtml);
-                    $masonry.html($cols);
-
-                    add($els);
                 }
+
+                $cols = $(colsHtml);
+                $masonry.html($cols);
+
+                add($els);
             };
 
         $(window).resize(init);
