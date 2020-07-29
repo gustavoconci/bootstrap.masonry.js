@@ -17,17 +17,13 @@
             add = function($els) {
                 var $colActive = $cols.eq(0),
                     elsI = -1,
-                    colsI;
-
-                var sum = 0;
-                $('#wrap > div').each(function() {
-                    sum += $(this).width();
-                });
-
-                var $col = [];
+                    colsI,
+                    $col;
 
                 while (++elsI < $els.length) {
                     colsI = -1;
+
+                    $colActive = $cols.eq(0);
 
                     while (++colsI < $cols.length) {
                         $col = $cols.eq(colsI);

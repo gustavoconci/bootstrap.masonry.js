@@ -16,17 +16,22 @@
             add = function($els) {
                 var $colActive = $cols.eq(0),
                     elsI = -1,
-                    colsI;
+                    colsI,
+                    $col;
 
                 while (++elsI < $els.length) {
                     colsI = -1;
 
+                    $colActive = $cols.eq(0);
+
                     while (++colsI < $cols.length) {
-                        if ($cols.eq(colsI).height() >= $colActive.height()) {
+                        $col = $cols.eq(colsI);
+
+                        if ($col.height() >= $colActive.height()) {
                             continue;
                         }
 
-                        $colActive = $cols.eq(colsI);
+                        $colActive = $col;
                     }
 
                     $colActive.append($els.eq(elsI));
